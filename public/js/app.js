@@ -2071,8 +2071,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Test",
   mounted: function mounted() {
@@ -2182,10 +2180,31 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
       title: "Index"
     }
   }, {
-    path: "/test",
-    name: "test",
+    path: "/login",
+    name: "login",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_components_ExampleComponent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_components_LogInComponent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/LogInComponent.vue */ "./resources/js/components/LogInComponent.vue"));
+    },
+    meta: {
+      title: "Log In"
+    }
+  }, {
+    path: "/register",
+    name: "register",
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_RegisterComponent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/RegisterComponent.vue */ "./resources/js/components/RegisterComponent.vue"));
+    },
+    meta: {
+      title: "Register"
+    }
+  }, {
+    path: "*",
+    redirect: "/404"
+  }, {
+    path: "/404",
+    name: "404",
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_ErrorComponent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/ErrorComponent.vue */ "./resources/js/components/ErrorComponent.vue"));
     }
   }]
 }));
@@ -37663,17 +37682,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("router-link", { attrs: { to: "/" } }, [_vm._v("/")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/test" } }, [_vm._v("/test")]),
-      _vm._v(" "),
-      _c("router-view")
-    ],
-    1
-  )
+  return _c("div", [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -53104,7 +53113,7 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Users\\\\Hansel\\\
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Index_vue":1,"resources_js_components_ExampleComponent_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Index_vue":1,"resources_js_components_LogInComponent_vue":1,"resources_js_components_RegisterComponent_vue":1,"resources_js_components_ErrorComponent_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

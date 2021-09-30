@@ -12,9 +12,25 @@ export default new Router({
             meta: { title: "Index" }
         },
         {
-            path: "/test",
-            name: "test",
-            component: () => import("./components/ExampleComponent.vue")
-        }
+            path: "/login",
+            name: "login",
+            component: () => import("./components/LogInComponent.vue"),
+            meta: { title: "Log In" }
+        },
+        {
+            path: "/register",
+            name: "register",
+            component: () => import("./components/RegisterComponent.vue"),
+            meta: { title: "Register" }
+        },
+        {
+            path: "*",
+            redirect: "/404"
+        },
+        {
+            path: "/404",
+            name: "404",
+            component: () => import("./components/ErrorComponent.vue")
+        },
     ]
 });

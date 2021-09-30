@@ -6,8 +6,6 @@ require('./bootstrap');
 window.Vue = require('vue').default;
 
 
-
-
 router.beforeEach((to, from, next) => {
     
     console.log("test");

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                Index
+               Error 404 Page
             </div>
         </div>
     </div>
@@ -11,7 +11,7 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+            console.log('Error Page')
         }
     }
 </script>
