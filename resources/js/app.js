@@ -15,7 +15,7 @@ router.beforeEach((to, from, next) => {
     .then(data => {
         
         console.log(data)
-        if (to.name == "home" || to.name == "posts" || to.name == "users") {
+        if (to.name == "home" || to.name == "account" || to.name == "posts") {
             if (data[0]) {
                 next();
             } else {

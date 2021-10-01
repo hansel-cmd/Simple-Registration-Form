@@ -15,16 +15,15 @@ const getters = {
 
 const actions = {
     [types.ACTION_PUT_POSTS](context, data) {
-        console.log(data);
-        // return new Promise(resolve => {
-        //     Api().post("/register", data)
-        //         .then(resp => {
-        //             resolve(resp.data);
-        //         })
-        //         .catch(err => {
-        //             resolve(err.response.data.errors);
-        //         });
-        // });
+        return new Promise(resolve => {
+            Api().post("/create-post", data.post)
+                .then(resp => {
+                    resolve(resp.data);
+                })
+                .catch(err => {
+                    resolve(err.response.data.errors);
+                });
+        });
     },
 
    

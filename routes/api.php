@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,11 @@ Route::post('/auth', [AuthController::class, 'verify']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/get-user-info', [AuthController::class, 'getUserInfo']);
 Route::post('/get-token', [AuthController::class, 'getToken']);
+
+
+// Post
+Route::post('/create-post', [PostController::class, 'createPost']);
+Route::post('/get-all-posts', [PostController::class, 'getAllPost']);
 
 
 
