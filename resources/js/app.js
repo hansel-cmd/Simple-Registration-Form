@@ -1,5 +1,6 @@
 import router from "./router";
 import App from "./App.vue";    
+import store from "./services/store/modules";
 
 require('./bootstrap');
 
@@ -14,5 +15,6 @@ router.beforeEach((to, from, next) => {
 
 new Vue({
     router,
+    store,
     render: h => h(App)
 }).$mount("#app");

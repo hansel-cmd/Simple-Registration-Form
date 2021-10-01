@@ -24,6 +24,11 @@ export default new Router({
             meta: { title: "Register" }
         },
         {
+            path: "/auth",
+            name: "auth",
+            redirect: "/login"
+          },
+        {
             path: "*",
             redirect: "/404"
         },
