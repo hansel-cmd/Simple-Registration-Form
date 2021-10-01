@@ -36,11 +36,7 @@ const actions = {
                     resolve(err.response.data.errors);
                 });
         });
-    }
-
-   
-
-    
+    }    
 };
 
 const mutations = {

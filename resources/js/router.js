@@ -8,6 +8,7 @@ export default new Router({
         {
             path: "/",
             name: "index",
+            redirect: '/login',
             component: () => import("./components/Index.vue"),
             meta: { title: "index" }
         },

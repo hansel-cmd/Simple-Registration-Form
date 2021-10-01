@@ -8,8 +8,8 @@
               <li class="media">
                 <img src="https://picsum.photos/100" class="mr-3" alt="..." />
                 <div class="media-body">
-                  <h5 class="mt-0 mb-1" style="font-weight: bold !important;">{{ post.title }}</h5>
-                  <small>by: {{ post.username }} <span v-if="isPostMine(post.user_id)">(Yours)</span> | {{ post.user_id }} </small>
+                  <h5 class="mt-0 mb-1" style="font-weight: bold !important;">{{ post.title }} <span v-if="isPostMine(post.user_id)" class="text-success" style="font-weight: bold !important;">(Yours)</span> </h5>
+                  <small>by: {{ post.username }} | {{ post.user_id }} </small>
                   <p class="mb-0">{{ post.body }}</p>
                 </div>
               </li>
@@ -37,7 +37,6 @@ export default {
   created() {
     this.getAllPosts()
       .then((res) => {
-        console.log(res);
         this.posts = res;
       })
       .catch((err) => console.log(err));

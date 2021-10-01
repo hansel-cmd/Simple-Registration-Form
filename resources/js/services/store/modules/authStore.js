@@ -45,16 +45,10 @@ const actions = {
         return new Promise(resolve => {
             Api().post("/login", data.user)
                 .then(resp => {
-
-
-                    console.log("hello world");
-                    console.log(resp.data.session_token);
-                    console.log("world hello");
                     context.commit(types.MUTATION_SET_USER, resp.data.user);
                     context.commit(types.MUTATION_SET_TOKEN, resp.data.token);
                     context.commit(types.MUTATION_SET_SESSION_TOKEN, resp.data.session_token);
 
-                    // ako i-set ang session_token 
                     resolve(resp.data);
                 })
                 .catch(err => {

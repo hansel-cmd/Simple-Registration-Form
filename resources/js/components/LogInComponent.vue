@@ -81,7 +81,6 @@ export default {
       this.isProcessing = true;
       this.goLogin({user: this.user})
           .then(res => {
-            console.log(res)
             if (res["error"] != undefined) {
               console.log(res.error);
               Swal.fire({
