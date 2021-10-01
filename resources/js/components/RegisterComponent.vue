@@ -82,7 +82,21 @@
                   required
                 />
               </div>
-              <button type="submit" class="btn btn-primary">Register</button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                v-if="!isProcessing"
+              >
+                Register
+              </button>
+              <button class="btn btn-primary" type="button" disabled v-else>
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Loading...
+              </button>
             </form>
           </div>
         </div>
@@ -92,7 +106,6 @@
 </template>
 
 <script>
-
 import { mapGetters, mapActions } from "vuex";
 import * as authTypes from "../services/store/types/authStore";
 import Swal from "sweetalert2";
@@ -100,6 +113,7 @@ import Swal from "sweetalert2";
 export default {
   data() {
     return {
+      isProcessing: false,
       signup_message: "",
       user: {
         email: null,
@@ -115,29 +129,31 @@ export default {
   },
   methods: {
     ...mapActions({
-        goRegister: authTypes.ACTION_REGISTER
+      goRegister: authTypes.ACTION_REGISTER,
     }),
     register() {
+      this.isProcessing = true;
       this.goRegister(this.user)
-      .then(res => {
-
+        .then((res) => {
           if (res.error) {
-              console.log(res.error);
-              Swal.fire({
+            console.log(res.error);
+            Swal.fire({
               title: "Oops! Error",
               text: res.error[0],
               icon: "error",
               confirmButtonClass: "btn btn-secondary",
-              heightAuto: false
+              heightAuto: false,
             });
           } else {
-              this.signup_message = "Please verify your account. Check your email.";
+            this.signup_message =
+              "Please verify your account. Check your email.";
           }
-      })
-      .catch(err => {
+          this.isProcessing = false;
+        })
+        .catch((err) => {
           console.log("something is wrong man");
           console.log(err);
-      });
+        });
     },
   },
 };

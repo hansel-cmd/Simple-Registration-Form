@@ -27,17 +27,18 @@ class AuthController extends Controller
         $check_user = User::where('email', $request->email)->first();
         $check_user_name = User::where('username', $request->username)->first();
 
+        if ($check_user) {
+            throw ValidationException::withMessages([
+                'error' => ['Email already taken']
+            ]);
+        }
+        
         if ($check_user_name) {
             throw ValidationException::withMessages([
                 'error' => ['Username is already taken.']
             ]);
         }
 
-        if ($check_user) {
-            throw ValidationException::withMessages([
-                'error' => ['Email already taken']
-            ]);
-        }
         $token = Str::random(20);
 
         $user = new User([

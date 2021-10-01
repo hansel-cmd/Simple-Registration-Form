@@ -24,9 +24,15 @@ export default new Router({
             meta: { title: "Register" }
         },
         {
+            path: "/verification",
+            name: "verification",
+            component: () => import("./components/VerificationMessage.vue"),
+            meta: { title: "Verification" }
+        },
+        {
             path: "/auth",
             name: "auth",
-            redirect: "/login"
+            redirect: "/verification"
           },
         {
             path: "*",
