@@ -98,27 +98,31 @@ class AuthController extends Controller
 
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            // return [
-            //     'error' => 'These credentials do not match our records.'
-            // ];
             throw ValidationException::withMessages([
                 'error' => ['These credentials do not match our records.']
             ]);
         } else if ($user->verified == false) {
-            // return [
-            //     'error' => 'Please verify your email.'
-            // ];
             throw ValidationException::withMessages([
                 'error' => ['Please verify your email.']
             ]);
         }
 
+        $token = Str::random(20);
+        $user->session_token = $token;
+        $user->save();
+
         return [
-            'user' => $user
+            'token' => $user->createToken('Token Name')->accessToken,
+            'user' => $user,
+            'session_token' => $token
         ];
-        // return [
-        //     'token' => $user->createToken('Token Name')->accessToken,
-        //     'user' => $user
-        // ];
+    }
+
+    function getUserInfo(Request $request) {
+        return User::where('user_id', $request->user_id)->first();
+    }
+
+    function getToken(Request $request) {
+        return User::where('user_id', $request->user_id)->get(['users.session_token']);
     }
 }

@@ -48,10 +48,10 @@ export default new Router({
                     meta: { title: "Account" }
                 },
                 {
-                    path: "/users",
-                    name: "users",
-                    component: () => import("./components/home/UsersComponent.vue"),
-                    meta: { title: "Users" }
+                    path: "/posts",
+                    name: "posts",
+                    component: () => import("./components/home/PostsComponent.vue"),
+                    meta: { title: "Public Posts" }
                 },
             ]
         },

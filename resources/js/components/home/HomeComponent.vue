@@ -25,8 +25,8 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/users">
-                <a class="nav-link">List of Users</a>
+            <router-link to="/posts">
+                <a class="nav-link">Public Posts</a>
             </router-link>
           </li>
           <li class="nav-item dropdown">
@@ -42,7 +42,7 @@
               Others
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" @click="onLogout" href="#">Logout</a>
             </div>
           </li>
         </ul>
@@ -52,3 +52,20 @@
     <router-view></router-view>
   </div>
 </template>
+
+<script>
+
+import * as authTypes from "../../services/store/types/authStore";
+
+export default {
+  methods: {
+    onLogout() {
+      this.$store
+        .dispatch(authTypes.ACTION_LOGOUT)
+        .then(() => {
+          this.$router.push({ name: "index" })
+        });
+    },
+  }
+}
+</script>

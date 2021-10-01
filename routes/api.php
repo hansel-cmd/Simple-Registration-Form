@@ -20,7 +20,8 @@ use App\Http\Controllers\AuthController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/auth', [AuthController::class, 'verify']);
 Route::post('/login', [AuthController::class, 'login']);
-
+Route::post('/get-user-info', [AuthController::class, 'getUserInfo']);
+Route::post('/get-token', [AuthController::class, 'getToken']);
 
 
 
