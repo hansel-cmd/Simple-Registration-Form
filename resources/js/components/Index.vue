@@ -6,6 +6,9 @@
                 <router-link to="/register">Register</router-link>
             </div>
         </div>
+        <div class="row">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 

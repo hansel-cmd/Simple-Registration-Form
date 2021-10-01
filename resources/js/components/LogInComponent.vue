@@ -25,7 +25,10 @@
                   placeholder="Password"
                 />
               </div>
-              <button type="submit" class="btn btn-primary">Login</button>
+              <button type="submit" class="btn btn-primary">Loign</button>
+              <small id="emailHelp" class="form-text text-muted"
+                  >Don't have an account? <router-link to="/register">Sign up!</router-link></small
+                >
             </form>
           </div>
         </div>

@@ -97,6 +97,9 @@
                 ></span>
                 Loading...
               </button>
+              <small id="emailHelp" class="form-text text-muted"
+                  >Already have an account? <router-link to="/login">Sign in!</router-link></small
+                >
             </form>
           </div>
         </div>
