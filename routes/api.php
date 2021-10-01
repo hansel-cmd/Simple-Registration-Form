@@ -19,6 +19,7 @@ use App\Http\Controllers\AuthController;
 // Authentication
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/auth', [AuthController::class, 'verify']);
+Route::post('/login', [AuthController::class, 'login']);
 
 
 

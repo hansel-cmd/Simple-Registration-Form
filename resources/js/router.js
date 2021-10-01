@@ -7,9 +7,9 @@ export default new Router({
     routes: [
         {
             path: "/",
-            name: "home",
+            name: "index",
             component: () => import("./components/Index.vue"),
-            meta: { title: "Index" }
+            meta: { title: "index" }
         },
         {
             path: "/login",
@@ -33,7 +33,28 @@ export default new Router({
             path: "/auth",
             name: "auth",
             redirect: "/verification"
-          },
+        },
+        {
+            path: "/home",
+            name: "home",
+            redirect: "/account",
+            component: () => import("./components/home/HomeComponent.vue"),
+            meta: { title: "Home Page" },
+            children: [
+                {
+                    path: "/account",
+                    name: "account",
+                    component: () => import("./components/home/AccountComponent.vue"),
+                    meta: { title: "Account" }
+                },
+                {
+                    path: "/users",
+                    name: "users",
+                    component: () => import("./components/home/UsersComponent.vue"),
+                    meta: { title: "Users" }
+                },
+            ]
+        },
         {
             path: "*",
             redirect: "/404"

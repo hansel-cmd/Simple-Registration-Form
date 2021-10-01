@@ -29,13 +29,27 @@ const actions = {
     },
 
     [types.ACTION_VERIFY](context, data) {
-        
         return new Promise(resolve => {
             Api().post("/auth", data)
                 .then(resp => {
                     resolve(resp.data);
                 })
                 .catch(err => {
+                    resolve(err.response.data.errors);
+                });
+        });
+    },
+
+    [types.ACTION_LOGIN](context, data) {
+        return new Promise(resolve => {
+            Api().post("/login", data.user)
+                .then(resp => {
+                    console.log("ha")
+                    console.log(resp);
+                    resolve(resp.data);
+                })
+                .catch(err => {
+                    console.log("haha")
                     resolve(err.response.data.errors);
                 });
         });

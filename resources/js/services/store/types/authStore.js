@@ -1,5 +1,6 @@
 export const ACTION_REGISTER = "authStore/ACTION_REGISTER";
 export const ACTION_VERIFY = "authStore/ACTION_VERIFY";
+export const ACTION_LOGIN = "authStore/ACTION_LOGIN";
 
 
 

@@ -60,8 +60,7 @@ class AuthController extends Controller
         // return $token;
     }
 
-    public function verify(Request $request)
-    {
+    public function verify(Request $request) {
         $request->validate([
             'token'    => ['required']
         ]);
@@ -89,6 +88,7 @@ class AuthController extends Controller
 
 
     function login(Request $request) {
+        
         $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -96,22 +96,26 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            // return [
+            //     'error' => 'These credentials do not match our records.'
+            // ];
+            throw ValidationException::withMessages([
+                'error' => ['These credentials do not match our records.']
+            ]);
+        } else if ($user->verified == false) {
+            // return [
+            //     'error' => 'Please verify your email.'
+            // ];
+            throw ValidationException::withMessages([
+                'error' => ['Please verify your email.']
+            ]);
+        }
+
         return [
-            "request_password" => $request->password,
-            "user_password" => $user->password
+            'user' => $user
         ];
-
-
-        // if (!$user || Hash::check($request->password, $user->password)) {
-        //     throw ValidationException::withMessages([
-        //         'error' => ['These credentials do not match our records.']
-        //     ]);
-        // } else if ($user->verified == false) {
-        //     throw ValidationException::withMessages([
-        //         'error' => ['Please verify your email.']
-        //     ]);
-        // }
-
         // return [
         //     'token' => $user->createToken('Token Name')->accessToken,
         //     'user' => $user

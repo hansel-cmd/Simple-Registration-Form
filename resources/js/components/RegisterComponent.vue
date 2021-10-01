@@ -135,6 +135,18 @@ export default {
       goRegister: authTypes.ACTION_REGISTER,
     }),
     register() {
+
+      if (this.user.password != this.user.confirm_password) {
+           Swal.fire({
+              title: "Oops! Error",
+              text: "Password and Confirm Password does not match.",
+              icon: "error",
+              confirmButtonClass: "btn btn-secondary",
+              heightAuto: false,
+            });
+            return;
+      }
+
       this.isProcessing = true;
       this.goRegister(this.user)
         .then((res) => {

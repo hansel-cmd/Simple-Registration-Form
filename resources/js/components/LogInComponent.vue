@@ -5,27 +5,39 @@
         <div class="card">
           <div class="card-header">Log In Component</div>
           <div class="card-body">
-            <form>
+            <form @submit.prevent="login">
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+                <label for="email">Email address</label>
                 <input
                   type="email"
                   class="form-control"
-                  id="exampleInputEmail1"   
+                  id="email"   
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
+                  v-model="user.email"
+                  required
                 />
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label for="password">Password</label>
                 <input
                   type="password"
                   class="form-control"
-                  id="exampleInputPassword1"
+                  id="password"
                   placeholder="Password"
+                  v-model="user.password"
+                  required
                 />
               </div>
-              <button type="submit" class="btn btn-primary">Loign</button>
+              <button type="submit" class="btn btn-primary" v-if="!isProcessing">Login</button>
+              <button class="btn btn-primary" type="button" disabled v-else>
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Loading...
+              </button>
               <small id="emailHelp" class="form-text text-muted"
                   >Don't have an account? <router-link to="/register">Sign up!</router-link></small
                 >
@@ -38,6 +50,7 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
 import { mapActions } from 'vuex';
 
 import * as authTypes from "../services/store/types/authStore";
@@ -45,20 +58,50 @@ import * as authTypes from "../services/store/types/authStore";
 export default {
   data() {
     return {
-      
+      isProcessing: false,
+      user: {
+        email: null,
+        password: null,
+      }
     }
   },
   mounted() {
     console.log("Log In Page");
   },
   created() {
-
+  
     
   },
   methods: {
     ...mapActions({
-      
+      goLogin: authTypes.ACTION_LOGIN
     }),
+    login() {
+
+      this.isProcessing = true;
+      this.goLogin({user: this.user})
+          .then(res => {
+            console.log(res)
+            if (res["error"] != undefined) {
+              console.log(res.error);
+              Swal.fire({
+                title: "Oops! Error",
+                text: res.error,
+                icon: "error",
+                heightAuto: false,
+              });
+            } else {
+              
+              this.$router.push({
+                name: "home"
+              });
+
+            }
+            this.isProcessing = false;
+          })
+          .catch(err => console.log(err));
+      
+    }
   }
 };
 </script>
