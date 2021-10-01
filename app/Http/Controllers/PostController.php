@@ -36,7 +36,10 @@ class PostController extends Controller
     }
     
     public function getAllPost(Request $request) {
-        return Post::get();
+
+        $posts = Post::join('users', 'users.user_id', '=', 'posts.user_id')->get(['posts.*', 'users.first_name', 'users.last_name', 'users.username', 'users.email']);
+
+        return $posts;
     }
 
     

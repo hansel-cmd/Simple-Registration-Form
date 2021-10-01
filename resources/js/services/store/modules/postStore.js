@@ -26,6 +26,18 @@ const actions = {
         });
     },
 
+    [types.ACTION_GET_POSTS](context, data) {
+        return new Promise(resolve => {
+            Api().post("/get-all-posts")
+                .then(resp => {
+                    resolve(resp.data);
+                })
+                .catch(err => {
+                    resolve(err.response.data.errors);
+                });
+        });
+    }
+
    
 
     
