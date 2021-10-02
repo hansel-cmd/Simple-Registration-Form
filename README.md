@@ -100,7 +100,7 @@ Here, I will walk you through this project.
 
 2. When a user logs in, 3 things will happen:
    - Inside 
-   [wtf](https://drive.google.com/file/d/1ArpzVfem5jHRQGNkqMh8DT-qS7k0ubeF/view?usp=sharing)
+   ![wtf](https://drive.google.com/file/d/1ArpzVfem5jHRQGNkqMh8DT-qS7k0ubeF/view?usp=sharing)
 
 
 
