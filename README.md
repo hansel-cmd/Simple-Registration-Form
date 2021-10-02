@@ -128,7 +128,7 @@ Here, I will walk you through this project's implementation addressing sin #5.
          - ```api``` => This is where I defined the RESTful API for this project. It also blocks unauthorized users from sending requests to the server. <br />
 ![api](https://user-images.githubusercontent.com/63908694/135717098-dfa7dfbd-893c-4050-90f6-70ac3a4a61d8.png)
 
-         - ```store modules``` => This is what routes the requests to the controller. It catches error when not authenticated or either of the ```session_token``` or ``` user_id ``` is not valid.
+         - ```store modules``` => This is what routes the requests to the controller. It catches error when not authenticated or when either of the ```session_token``` or ``` user_id ``` is not valid.
 
            code snippet
 ![store modules](https://user-images.githubusercontent.com/63908694/135717117-9059e9b0-5c3c-43e4-8233-0e252bc63b21.png)
