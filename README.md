@@ -175,7 +175,7 @@ Note: You can use any dummy data in the database since we performed db seeding i
     2a. Remember that from the previous screenshot, the ```user_id``` is ```6``` and the ```session_token``` is ```qJ7jK8rMpwYEh0UlvigZ```. In this screenshot, we can see that we indeed have the user's information.
 ![image](https://user-images.githubusercontent.com/63908694/135720085-4a0db5b5-d953-4ffe-b782-6a732c89a27a.png)
 
-    2b. But changing one of the information from the localStorage will yield null or yield an html template indicating that the request was not able to continue because an error occurred.
+    2b. But changing one of the information from the localStorage will yield null or yield an html template indicating that the request was not able to continue because an error occurred. <br />
 ![image](https://user-images.githubusercontent.com/63908694/135720367-a1367906-99a9-4f1e-89aa-6099be5e92fb.png)
 ![image](https://user-images.githubusercontent.com/63908694/135720454-afdeaf47-c61a-4e36-b373-749980735e39.png)
 
