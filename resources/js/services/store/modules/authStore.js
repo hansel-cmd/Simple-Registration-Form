@@ -97,7 +97,7 @@ const actions = {
 
     [types.ACTION_FETCH_USER_INFO](context) {
         return new Promise(resolve => {
-            Api().post("/get-user-info", { 'user_id': localStorage.getItem("user_id") })
+            Api().post("/get-user-info", { 'user_id': localStorage.getItem("user_id"), session_token: localStorage.getItem('session_token') })
                 .then(resp => {
                     context.commit(types.MUTATION_SET_USER, resp.data);
                     resolve(true);

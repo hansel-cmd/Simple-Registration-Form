@@ -119,7 +119,15 @@ class AuthController extends Controller
     }
 
     function getUserInfo(Request $request) {
-        return User::where('user_id', $request->user_id)->first();
+        
+        $request->validate([
+            'session_token' => ['required']
+        ]);
+
+        return User::where([
+            'user_id' => $request->user_id, 
+            'session_token' => $request->session_token
+        ])->get(['user_id', 'username', 'first_name', 'last_name', 'email'])->first();
     }
 
     function getToken(Request $request) {

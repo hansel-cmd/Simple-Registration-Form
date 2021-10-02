@@ -20,7 +20,7 @@
           <li class="nav-item active">
             <router-link to="/home">
                 <a class="nav-link"
-              >Home <span class="sr-only">(current)</span></a
+              >Account <span class="sr-only">(current)</span></a
             >
             </router-link>
           </li>
