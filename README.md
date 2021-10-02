@@ -10,26 +10,27 @@ Make sure you have composer and npm installed on your system.
    ```bash
    git clone https://github.com/hansel-cmd/Simple-Registration-Form.git
    ```
+2. CD to that folder
 
-2. Install npm packages
+3. Install npm packages
 
    ```bash
    npm install
    ```
 
-3. Install dependencies
+4. Install dependencies
    ```bash
    composer install
    ```
 
-4. Get latest dependencies
+5. Get latest dependencies
    ```bash
    composer update
    ```
 
-5. Copy paste ```.env.example``` and change to ```.env```
+6. Copy paste ```.env.example``` and change to ```.env```
 
-6. Inside ```.env``` file, set the following:
+7. Inside ```.env``` file, set the following:
 
    Note: You may use your dummy email.
    ```
@@ -43,20 +44,20 @@ Make sure you have composer and npm installed on your system.
    MAIL_FROM_NAME=Cesa_Security_Verification
    ```
 
-7. This step is very IMPORTANT. Make sure you follow. 
+8. This step is very IMPORTANT. Make sure you follow. 
 
-   7a. Go to [https://myaccount.google.com/security](https://myaccount.google.com/security)
+   8a. Go to [https://myaccount.google.com/security](https://myaccount.google.com/security)
 
-   7b. Turn on ```Less Secure App Access```
+   8b. Turn on ```Less Secure App Access```
 
    Note: Allowing less secure app access will grant this project access to your email account. This is to let the project know which email account to use when sending an email verification. You can turn this off after you're done with this project.
 
-8. Generate app key
+9. Generate app key
    ```
    php artisan key:generate
    ```
 
-9. Set up your database in the ```.env``` file. You may change the db name to whatever you like. And then, create a database in your phpmyadmin.
+10. Set up your database in the ```.env``` file. You may change the db name to whatever you like. And then, create a database in your phpmyadmin.
    ```
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
@@ -66,28 +67,28 @@ Make sure you have composer and npm installed on your system.
    DB_PASSWORD=
    ```
 
-10. Migrate database table
+11. Migrate database table
     ```
     php artisan migrate
     ```
 
-11. Seed the database
+12. Seed the database
     ```
     php artisan db:seed
     ```
 
-12. Install passport
+13. Install passport
     ```
     php artisan passport:install
     ```
     Note: If you ever perform migration rollback or even drop the database tables, you may have to do this step again.
 
-13. Compile vueJS
+14. Compile vueJS
     ```
     npm run watch
     ```
 
-14. Start the server
+15. Start the server
     ```
     php artisan serve
     ```
