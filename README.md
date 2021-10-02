@@ -95,7 +95,7 @@ Make sure you have composer and npm installed on your system.
 ## Addressing Sin #2
    > __This part addresses sin #2. The data stored in the localStorage MUST BE context dependent.__
 
-Here, I will walk you through this project's implementation addressing sin #3.
+Here, I will walk you through this project's implementation addressing sin #2.
 
 1. When a user has registered using valid email, an email verification link is sent. This link will give a token to signify that the account has been verified.
 
