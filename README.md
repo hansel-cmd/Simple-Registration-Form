@@ -56,7 +56,7 @@ Make sure you have composer and npm installed on your system.
    php artisan key:generate
    ```
 
-9. Set up your database in the ```.env``` file. You may change the db name to whatever you like.
+9. Set up your database in the ```.env``` file. You may change the db name to whatever you like. And then, create a database in your phpmyadmin.
    ```
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
