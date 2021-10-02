@@ -156,7 +156,7 @@ Here, I will walk you through this project's implementation addressing sin #1.
    Somewhere inside the ```form tag```, we usually put the hidden input.
 ![sending a request](https://user-images.githubusercontent.com/63908694/135719094-681a3d3a-0615-44ae-b4a1-45f9c9b3bb54.png)
 
-   But in this implementation, we fetch all the ```user information``` including the ```user_id``` from the ```state management store```. This is done inside the ```computed``` property below.
+   But in this implementation, we fetch all the ```user information``` including the ```user_id``` from the ```state management store```. This is done inside the ```computed``` property below. <br/>
 ![image](https://user-images.githubusercontent.com/63908694/135718853-b81d82a7-2495-48e4-8bd0-d5f3d7c40dc2.png) 
 
    So with that, there is no way for someone to edit his ```user_id``` when submitting the form unlike when using hidden inputs as it can be edited when inspecting an element in the dev tools. There is also no way for someone to edit the localStorage's ```user_id``` as it is context dependent on the ```session_token``` as explained in the Addressing Sin #2 part.
