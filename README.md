@@ -119,6 +119,7 @@ Here, I will walk you through this project's implementation addressing sin #5.
 1. The implementation is separated into parts: ```views, models, controllers, services (types, store modules, api)```
        
     - Views: ```root >  resources > js > components > *```
+    - Models: ```root > app > models > * ```
     - Services: ```root > resources > js > services > *```. This is divided into 3 parts.
          - ```types``` => This defines the name and the type of the functions used inside ``` store modules ```
 ![types](https://user-images.githubusercontent.com/63908694/135717069-004c8da5-9fb4-495f-b1fc-fe2be534fb2f.png)
